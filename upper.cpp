@@ -1,3 +1,4 @@
+//Without STL
 #include <iostream>
 
 char * upper(char * str);
@@ -19,3 +20,6 @@ char * upper(char * str)
             str[i] -= 32;
     return str;
 }
+
+//With STL
+//Без STL давно сделал, а STL пока что учу STL.
