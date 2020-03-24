@@ -22,4 +22,4 @@ char * upper(char * str)
 }
 
 //With STL
-//Без STL давно сделал, а STL пока что учу STL.
+//Пока что учу STL.
