@@ -57,6 +57,11 @@ int copyCheck(char * str, const int num)
                 i++;
                 nNum++;
                 copyCount++;
+                if(str[i - size + 1] != temp[nNum] && !isSpace(str[i - size + 1]))
+                {
+                    copyCount = 0;
+                    break;
+                }
                 if(copyCount != 0 && str[i - size + 1] != temp[nNum])
                     copy = true;
             }
