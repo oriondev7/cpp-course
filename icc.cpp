@@ -72,6 +72,7 @@ int copyCheck(char * str, const int num)
     return copyCount;
 }
 
+//Перезаписывает строку очищая избыточную память
 void memoryCleaner(char *&str)
 {
     int size = 0;
