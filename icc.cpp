@@ -72,6 +72,22 @@ int copyCheck(char * str, const int num)
     return copyCount;
 }
 
+void memoryCleaner(char *&str)
+{
+    int size = 0;
+    while(str[size] != '\0')
+        size++;
+    size++;
+    char *nStr = new char[size];
+    nStr[size - 1] = '\0';
+    for(int i = 0; i < size; i++)
+    {
+        nStr[i] = str[i];
+    }
+    delete[] str;
+    str = nStr;
+}
+
 void cont(char * str)
 {
     int size = 0;
@@ -80,7 +96,6 @@ void cont(char * str)
     size++;
     const int ORIGINAL_SIZE = size;
     char * nStr = new char[size];
-    nStr[size - 1] = '\0';
     size = 0;
     int i = 0;
     int iterCheck = 0;
@@ -100,15 +115,12 @@ void cont(char * str)
         i++;
         iterCheck = i;
     }
-    char *nStr2 = new char[size];
-    nStr2[size - 1] = '\0';
-    for(int i = 0; i < size; i++)
-    {
-        nStr2[i] = nStr[i];
-    }
-    delete [] nStr;
-    std::cout << nStr2 << std::endl;
-    delete [] nStr2;
+    nStr[size - 1] = '\0';
+    //Освобождаем выделеную в начале функции избыточную память и выделаем необходимую
+    memoryCleaner(nStr);
+    std::cout << nStr << std::endl;
+    delete[] nStr;
+    nStr = nullptr;
 }
 
 //With STL
